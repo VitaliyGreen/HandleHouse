@@ -20,5 +20,60 @@ namespace HandleHouse.Data
 
             return result;
         }
+
+        public static List<House> GetHouses()
+        {
+            List<House> result = new List<House>();
+            using (HouseContext db = new HouseContext())
+            {
+                result = db.Houses.ToList();
+            }
+
+            return result;
+        }
+
+        public static List<Settlement> GetSettlements()
+        {
+            List<Settlement> result = new List<Settlement>();
+            using (HouseContext db = new HouseContext())
+            {
+                result = db.Settlements.ToList();
+            }
+
+            return result;
+        }
+
+        public static List<Furniture> GetFurniture()
+        {
+            List<Furniture> result = new List<Furniture>();
+            using (HouseContext db = new HouseContext())
+            {
+                result = db.Furniture.ToList();
+            }
+
+            return result;
+        }
+
+        public static List<Owner> GetOwners()
+        {
+            List<Owner> result = new List<Owner>();
+            using (HouseContext db = new HouseContext())
+            {
+                result = db.Owners.ToList();
+            }
+
+            return result;
+        }
+
+        public static List<Person> GetPeople()
+        {
+            List<Person> result = new List<Person>();
+            using (HouseContext db = new HouseContext())
+            {
+                result = db.People.ToList();
+            }
+
+            return result;
+        }
     }
 }

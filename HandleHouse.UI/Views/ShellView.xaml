@@ -7,14 +7,24 @@
         mc:Ignorable="d"
         Title="Handle House" Height="450" Width="800"
         FontSize="16" WindowStartupLocation="CenterScreen">
+
     <Grid>
-        <DataGrid x:Name="Works" AlternatingRowBackground="BurlyWood"
-                  AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Type" 
-                                    Binding ="{Binding Path=WorkType}"></DataGridTextColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="View">
+                <MenuItem Header="Settlements" x:Name="ActivateSettlementsView" />
+                <MenuItem Header="Houses" x:Name="ActivateHousesView" />
+                <MenuItem Header="Furniture" x:Name="ActivateFurnitureView"/>
+                <MenuItem Header="Works" x:Name="ActivateWorksView" />
+                <MenuItem Header="Owners" x:Name="ActivateOwnersView"/>
+                <MenuItem Header="People" x:Name="ActivatePeopleView"/>
+            </MenuItem>
+        </Menu>
+        <ContentControl Grid.Row="1" x:Name="ActiveItem"/>
     </Grid>
     
 </Window>

@@ -78,9 +78,33 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ViewModels\FurnitureViewModel.cs" />
+    <Compile Include="ViewModels\HousesViewModel.cs" />
+    <Compile Include="ViewModels\OwnersViewModel.cs" />
+    <Compile Include="ViewModels\PeopleViewModel.cs" />
+    <Compile Include="ViewModels\SettlementsViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="ViewModels\WorksViewModel.cs" />
+    <Compile Include="Views\FurnitureView.xaml.cs">
+      <DependentUpon>FurnitureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HousesView.xaml.cs">
+      <DependentUpon>HousesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OwnersView.xaml.cs">
+      <DependentUpon>OwnersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PeopleView.xaml.cs">
+      <DependentUpon>PeopleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettlementsView.xaml.cs">
+      <DependentUpon>SettlementsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WorksView.xaml.cs">
+      <DependentUpon>WorksView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -121,7 +145,31 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\FurnitureView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HousesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OwnersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PeopleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettlementsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ShellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WorksView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
