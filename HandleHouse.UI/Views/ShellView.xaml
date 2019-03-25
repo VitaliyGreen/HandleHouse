@@ -1,0 +1,20 @@
+﻿<Window x:Class="HandleHouse.UI.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HandleHouse.UI.Views"
+        mc:Ignorable="d"
+        Title="Handle House" Height="450" Width="800"
+        FontSize="16" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DataGrid x:Name="Works" AlternatingRowBackground="BurlyWood"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Type" 
+                                    Binding ="{Binding Path=WorkType}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+    
+</Window>
