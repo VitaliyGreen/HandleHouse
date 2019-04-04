@@ -27,5 +27,7 @@ namespace HandleHouse.Data.Models
         {
             
         }
+
+        public string FullAddress => $"{Settlement.Name}, {Street}, {Number}";
     }
 }

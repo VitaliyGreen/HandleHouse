@@ -1,0 +1,99 @@
+﻿<UserControl x:Class="HandleHouse.UI.Views.SettlementsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:HandleHouse.UI.Views"
+             xmlns:viewModels="clr-namespace:HandleHouse.UI.ViewModels"
+             xmlns:enm="clr-namespace:HandleHouse.Data;assembly=HandleHouse.Data"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="enmTypes" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enm:TypeHelper+SettlementType"></x:Type>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    <Grid>
+
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <ItemsControl>
+            <DataGrid ItemsSource="{Binding Path=Settlements, NotifyOnSourceUpdated=True}" RowBackground="Bisque" AlternatingRowBackground="BurlyWood" 
+                  SelectedItem="{Binding Path=SelectedSettlement}" CanUserAddRows="False"
+                   
+                  >
+            </DataGrid>
+        </ItemsControl>
+
+            <GridSplitter 
+            Grid.RowSpan="5" 
+            Grid.Column="1" 
+            Width="3" 
+            VerticalAlignment="Stretch"/>
+
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+                <ComboBox
+                SelectedItem="{Binding Path=NewSettlementType}"
+                ItemsSource="{Binding Source={StaticResource enmTypes}}"
+                Grid.Row="1"
+                Grid.Column="2"/>
+            <TextBox 
+                Name="NameTextBox"
+                Text="{Binding Path=NewSettlementName, Mode=OneWayToSource}"
+                VerticalAlignment="Center" 
+                Grid.Row="2" 
+                Grid.Column="2" 
+                MinWidth="100" 
+                MaxLength="2000"/>
+            <TextBox 
+                Name="RegionTextBox"
+                Text="{Binding Path=NewSettlementRegion,Mode=OneWayToSource }"
+                VerticalAlignment="Center" 
+                Grid.Row="3" 
+                Grid.Column="2" 
+                MinWidth="100" 
+                MaxLength="2000"/>
+            <TextBox 
+                Name="DistrictTextBox"
+                Text="{Binding Path=NewSettlementDistrict, Mode=OneWayToSource}"
+                VerticalAlignment="Center" 
+                Grid.Row="4" 
+                Grid.Column="2" 
+                MinWidth="100" 
+                MaxLength="2000"/>
+            <Button
+                Content="Save New Settlement"
+                Grid.Row="5"
+                Grid.Column="2"
+                Command="{Binding Path=SaveNewSettlementClass}"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

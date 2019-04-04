@@ -23,7 +23,7 @@ namespace HandleHouse.Data
             //    }
             //}
 
-            var works = DataAccess.GetWorks();
+            var works = DataAccess.GetWorks(new HouseContext());
             Console.WriteLine(works[0].House.RoomNumber);
 
             Console.ReadKey();

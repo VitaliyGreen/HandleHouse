@@ -42,7 +42,7 @@ namespace HandleHouse.Data.Helpers
 
         //Furniture parameters
         //ctor (string name, int cost, DateTime setDate, House house)
-        private readonly string[] _furnitureNames = new string[] {"Table"};
+        private readonly string[] _furnitureNames = new string[] {"Table", "Chair", "Shelf", "Sofa"};
 
         //Person parameters
         //ctor ((string first, string last, string patronymic, DateTime birthday, House house, TypeHelper.Sex sex)

@@ -10,15 +10,9 @@ namespace HandleHouse.Data
 {
     public static class DataAccess
     {
-        public static List<Work> GetWorks()
+        public static List<Work> GetWorks(HouseContext db)
         {
-            List<Work> result = new List<Work>();
-            using (HouseContext db = new HouseContext())
-            {
-                result = db.Works.ToList();
-            }
-
-            return result;
+            return db.Works.ToList();
         }
 
         public static List<House> GetHouses()
@@ -32,15 +26,9 @@ namespace HandleHouse.Data
             return result;
         }
 
-        public static List<Settlement> GetSettlements()
+        public static List<Settlement> GetSettlements(HouseContext db)
         {
-            List<Settlement> result = new List<Settlement>();
-            using (HouseContext db = new HouseContext())
-            {
-                result = db.Settlements.ToList();
-            }
-
-            return result;
+            return db.Settlements.ToList();
         }
 
         public static List<Furniture> GetFurniture()

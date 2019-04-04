@@ -13,9 +13,9 @@ namespace HandleHouse.UI.ViewModels
     {
         public BindableCollection<Work> Works { get; set; }
 
-        public WorksViewModel()
+        public WorksViewModel(HouseContext db)
         {
-            Works = new BindableCollection<Work>(DataAccess.GetWorks());
+            Works = new BindableCollection<Work>(DataAccess.GetWorks(db));
         }
     }
 }

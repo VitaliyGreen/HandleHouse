@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HandleHouse.UI.Views
+namespace HandleHouse.UI.Views.Queries
 {
     /// <summary>
-    /// Interaction logic for SettlementsView.xaml
+    /// Interaction logic for Query1View.xaml
     /// </summary>
-    public partial class SettlementsView : UserControl
+    public partial class Query1View : UserControl
     {
-        public SettlementsView()
+        public Query1View()
         {
             InitializeComponent();
         }

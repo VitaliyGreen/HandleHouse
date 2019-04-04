@@ -7,42 +7,75 @@ using System.Windows;
 using Caliburn.Micro;
 using HandleHouse.Data;
 using HandleHouse.Data.Models;
+using HandleHouse.UI.ViewModels.Queries;
 
 namespace HandleHouse.UI.ViewModels
 {
-    class ShellViewModel : Conductor<object>
+    public class ShellViewModel : Conductor<object>
     {
+        private HouseContext context;
+
         public ShellViewModel()
-        {}
+        {
+            context = new HouseContext();
+        }
 
         public void ActivateSettlementsView()
         {
-            ActivateItem(new SettlementsViewModel());
+            ActivateItem(new SettlementsViewModel(context));
         }
-
         public void ActivateHousesView()
         {
             ActivateItem(new HousesViewModel());
         }
-
         public void ActivateWorksView()
         {
-            ActivateItem(new WorksViewModel());
+            ActivateItem(new WorksViewModel(context));
         }
-
         public void ActivateFurnitureView()
         {
             ActivateItem(new FurnitureViewModel());
         }
-
         public void ActivatePeopleView()
         {
             ActivateItem(new PeopleViewModel());
         }
-
         public void ActivateOwnersView()
         {
             ActivateItem(new OwnersViewModel());
+        }
+
+        public void ActivateQuery1()
+        {
+            ActivateItem(new Query1ViewModel(context));
+        }
+        public void ActivateQuery2()
+        {
+            ActivateItem(new Query2ViewModel(context));
+        }
+        public void ActivateQuery3()
+        {
+            ActivateItem(new Query3ViewModel());
+        }
+        public void ActivateQuery4()
+        {
+            ActivateItem(new Query4ViewModel());
+        }
+        public void ActivateQuery5()
+        {
+            ActivateItem(new Query5ViewModel());
+        }
+        public void ActivateQuery6()
+        {
+            ActivateItem(new Query6ViewModel());
+        }
+        public void ActivateQuery7()
+        {
+            ActivateItem(new Query7ViewModel());
+        }
+        public void ActivateQuery8()
+        {
+            ActivateItem(new Query8ViewModel());
         }
     }
 }

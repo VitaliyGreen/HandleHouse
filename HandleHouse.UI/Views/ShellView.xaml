@@ -23,6 +23,16 @@
                 <MenuItem Header="Owners" x:Name="ActivateOwnersView"/>
                 <MenuItem Header="People" x:Name="ActivatePeopleView"/>
             </MenuItem>
+            <MenuItem Header="Search">
+                <MenuItem Header="Query 1" x:Name="ActivateQuery1"/>
+                <MenuItem Header="Query 2" x:Name="ActivateQuery2"/>
+                <MenuItem Header="Query 3" x:Name="ActivateQuery3"/>
+                <MenuItem Header="Query 4" x:Name="ActivateQuery4"/>
+                <MenuItem Header="Query 5" x:Name="ActivateQuery5"/>
+                <MenuItem Header="Query 6" x:Name="ActivateQuery6"/>
+                <MenuItem Header="Query 7" x:Name="ActivateQuery7"/>
+                <MenuItem Header="Query 8" x:Name="ActivateQuery8"/>
+            </MenuItem>
         </Menu>
         <ContentControl Grid.Row="1" x:Name="ActiveItem"/>
     </Grid>

@@ -53,6 +53,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Caliburn.Micro.3.2.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -78,32 +80,65 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewModels\FurnitureViewModel.cs" />
-    <Compile Include="ViewModels\HousesViewModel.cs" />
-    <Compile Include="ViewModels\OwnersViewModel.cs" />
-    <Compile Include="ViewModels\PeopleViewModel.cs" />
-    <Compile Include="ViewModels\SettlementsViewModel.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="ViewModels\Queries\Query1ViewModel.cs" />
+    <Compile Include="ViewModels\Queries\Query2ViewModel.cs" />
+    <Compile Include="ViewModels\Queries\Query3ViewModel.cs" />
+    <Compile Include="ViewModels\Queries\Query4ViewModel.cs" />
+    <Compile Include="ViewModels\Queries\Query5ViewModel.cs" />
+    <Compile Include="ViewModels\Queries\Query6ViewModel.cs" />
+    <Compile Include="ViewModels\Queries\Query7ViewModel.cs" />
+    <Compile Include="ViewModels\Queries\Query8ViewModel.cs" />
+    <Compile Include="ViewModels\Tables\FurnitureViewModel.cs" />
+    <Compile Include="ViewModels\Tables\HousesViewModel.cs" />
+    <Compile Include="ViewModels\Tables\OwnersViewModel.cs" />
+    <Compile Include="ViewModels\Tables\PeopleViewModel.cs" />
+    <Compile Include="ViewModels\Tables\SettlementsViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
-    <Compile Include="ViewModels\WorksViewModel.cs" />
-    <Compile Include="Views\FurnitureView.xaml.cs">
+    <Compile Include="ViewModels\Tables\WorksViewModel.cs" />
+    <Compile Include="Views\Queries\Query1View.xaml.cs">
+      <DependentUpon>Query1View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Queries\Query2View.xaml.cs">
+      <DependentUpon>Query2View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Queries\Query3View.xaml.cs">
+      <DependentUpon>Query3View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Queries\Query4View.xaml.cs">
+      <DependentUpon>Query4View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Queries\Query5View.xaml.cs">
+      <DependentUpon>Query5View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Queries\Query6View.xaml.cs">
+      <DependentUpon>Query6View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Queries\Query7View.xaml.cs">
+      <DependentUpon>Query7View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Queries\Query8View.xaml.cs">
+      <DependentUpon>Query8View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tables\FurnitureView.xaml.cs">
       <DependentUpon>FurnitureView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HousesView.xaml.cs">
+    <Compile Include="Views\Tables\HousesView.xaml.cs">
       <DependentUpon>HousesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\OwnersView.xaml.cs">
+    <Compile Include="Views\Tables\OwnersView.xaml.cs">
       <DependentUpon>OwnersView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PeopleView.xaml.cs">
+    <Compile Include="Views\Tables\PeopleView.xaml.cs">
       <DependentUpon>PeopleView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SettlementsView.xaml.cs">
+    <Compile Include="Views\Tables\SettlementsView.xaml.cs">
       <DependentUpon>SettlementsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WorksView.xaml.cs">
+    <Compile Include="Views\Tables\WorksView.xaml.cs">
       <DependentUpon>WorksView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -145,23 +180,55 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\FurnitureView.xaml">
+    <Page Include="Views\Queries\Query1View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HousesView.xaml">
+    <Page Include="Views\Queries\Query2View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\OwnersView.xaml">
+    <Page Include="Views\Queries\Query3View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PeopleView.xaml">
+    <Page Include="Views\Queries\Query4View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SettlementsView.xaml">
+    <Page Include="Views\Queries\Query5View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Queries\Query6View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Queries\Query7View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Queries\Query8View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tables\FurnitureView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tables\HousesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tables\OwnersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tables\PeopleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tables\SettlementsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -169,7 +236,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WorksView.xaml">
+    <Page Include="Views\Tables\WorksView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
