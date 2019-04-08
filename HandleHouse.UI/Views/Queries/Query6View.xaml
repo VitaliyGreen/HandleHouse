@@ -18,9 +18,15 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="People"></DataGrid>
+        <DataGrid x:Name="People" CanUserAddRows="False" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Full name" Binding="{Binding Path=FullName}"/>
+                <DataGridTextColumn Header="Birthday" Binding="{Binding Path=Birthday}"/>
+                <DataGridTextColumn Header="Sex" Binding="{Binding Path=Sex}"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
-        <Grid Grid.Row="1" Grid.Column="1">
+        <Grid Grid.Row="1" Grid.Column="1" Margin="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>

@@ -7,6 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <DataGrid x:Name="Houses" RowBackground="Bisque" AlternatingRowBackground="BurlyWood"></DataGrid>
+        <DataGrid x:Name="Houses" RowBackground="Bisque" AlternatingRowBackground="BurlyWood"
+                  CanUserAddRows="False" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Technical passport number" Binding="{Binding Path=TechnicalPassportNumber}"/>
+                <DataGridTextColumn Header="Room number" Binding="{Binding Path=RoomNumber}"/>
+                <DataGridTextColumn Header="Square" Binding="{Binding Path=Area}"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding Path=FullAddress}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

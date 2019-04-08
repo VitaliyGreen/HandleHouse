@@ -12,7 +12,7 @@ namespace HandleHouse.Data
     {
         public static List<Work> GetWorks(HouseContext db)
         {
-            return db.Works.ToList();
+            return db.Works.Include("House.Settlement").ToList();
         }
 
         public static List<House> GetHouses()
@@ -36,7 +36,7 @@ namespace HandleHouse.Data
             List<Furniture> result = new List<Furniture>();
             using (HouseContext db = new HouseContext())
             {
-                result = db.Furniture.ToList();
+                result = db.Furniture.Include("House.Settlement").ToList();
             }
 
             return result;
@@ -47,7 +47,7 @@ namespace HandleHouse.Data
             List<Owner> result = new List<Owner>();
             using (HouseContext db = new HouseContext())
             {
-                result = db.Owners.ToList();
+                result = db.Owners.Include("House.Settlement").ToList();
             }
 
             return result;
@@ -58,10 +58,16 @@ namespace HandleHouse.Data
             List<Person> result = new List<Person>();
             using (HouseContext db = new HouseContext())
             {
-                result = db.People.ToList();
+                result = db.People.Include("House.Settlement").ToList();
             }
 
             return result;
+        }
+
+        public static Owner GetOwnerOfHouse(House house, HouseContext db)
+        {
+            return db.Owners.Include("House.Settlement")
+                .First(o => o.House.TechnicalPassportNumber == house.TechnicalPassportNumber);
         }
     }
 }

@@ -17,9 +17,17 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="Houses"></DataGrid>
+        <DataGrid x:Name="Houses" CanUserAddRows="False" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="e-mail" Binding="{Binding Path=Email}"/>
+                <DataGridTextColumn Header="Technical passport number" Binding="{Binding Path=TechnicalPassportNumber}"/>
+                <DataGridTextColumn Header="Room number" Binding="{Binding Path=RoomNumber}"/>
+                <DataGridTextColumn Header="Square" Binding="{Binding Path=Area}"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding Path=FullAddress}"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
-        <Grid Grid.Row="1" Grid.Column="1">
+        <Grid Grid.Row="1" Grid.Column="1" Margin="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>

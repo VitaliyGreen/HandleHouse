@@ -7,8 +7,24 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <DataGrid x:Name="Furniture" RowBackground="Bisque" AlternatingRowBackground="BurlyWood">
-
-            </DataGrid>
+        <DataGrid x:Name="Furniture" RowBackground="Bisque" AlternatingRowBackground="BurlyWood" CanUserAddRows="False" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Cost" Binding="{Binding Path=Cost}"/>
+                <DataGridTemplateColumn Header="Set date">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=SetDate}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <DatePicker Text="{Binding Path=SetDate}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="House" Binding="{Binding Path=House.FullAddress}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

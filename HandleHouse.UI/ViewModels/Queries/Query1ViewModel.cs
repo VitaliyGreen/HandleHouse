@@ -46,8 +46,8 @@ namespace HandleHouse.UI.ViewModels.Queries
             }
         }
 
-        private BindableCollection<House> _houses;
-        public BindableCollection<House> Houses
+        private BindableCollection<Info1> _houses;
+        public BindableCollection<Info1> Houses
         {
             get => _houses;
             set
@@ -81,7 +81,13 @@ namespace HandleHouse.UI.ViewModels.Queries
                     foundHouses.Add(house);
             }
 
-            Houses = new BindableCollection<House>(foundHouses.Where(h => h.Settlement.Name == SettlementName).ToList()); 
+            List<Info1> res = new List<Info1>();
+            List<House> houses = new List<House>(foundHouses.Where(h => h.Settlement.Name == SettlementName).ToList());
+            foreach (House house in houses)
+            {
+                res.Add(new Info1(house, DataAccess.GetOwnerOfHouse(house, _currentContext).FullName));
+            }
+            Houses = new BindableCollection<Info1>(res); 
             NotifyOfPropertyChanged();
         }
 
@@ -119,6 +125,22 @@ namespace HandleHouse.UI.ViewModels.Queries
             {
                 model.SearchHousesMethod();
             }
+        }
+    }
+
+    public class Info1 : House
+    {
+        public string Email { get; set; }
+
+        public Info1()
+        {
+            
+        }
+
+        public Info1(House house, string email)
+            : base(house.Number, house.TechnicalPassportNumber, house.RoomNumber, house.Area, house.Street, house.Settlement)
+        {
+            Email = email;
         }
     }
 }

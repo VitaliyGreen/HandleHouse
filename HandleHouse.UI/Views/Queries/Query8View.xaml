@@ -19,11 +19,11 @@
         </Grid.ColumnDefinitions>
 
         <DataGrid ItemsSource="{Binding Path=Infos}">
-            <!--<DataGrid.Columns>
-                <DataGridTextColumn Header="Full name" Binding="{Binding Path=OwnerNames.FullName}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Furniture" Binding="{Binding Path=Furniture.Name}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Cost" Binding="{Binding Path=Furniture.Cost}"></DataGridTextColumn>
-            </DataGrid.Columns>-->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Full name" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Furniture" Binding="{Binding Path=Furniture}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Cost" Binding="{Binding Path=Cost}"></DataGridTextColumn>
+            </DataGrid.Columns>
         </DataGrid>
 
         <Grid Grid.Row="1" Grid.Column="1">

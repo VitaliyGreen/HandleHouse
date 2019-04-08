@@ -28,9 +28,17 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="Owners"></DataGrid>
+        <DataGrid x:Name="Owners" CanUserAddRows="False" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Full name" Binding="{Binding Path=FullName}"/>
+                <DataGridTextColumn Header="Birthday" Binding="{Binding Path=Birthday}"/>
+                <DataGridTextColumn Header="Passport number" Binding="{Binding Path=PassportNumber}"/>
+                <DataGridTextColumn Header="Phone number" Binding="{Binding Path=PhoneNumber}"/>
+                <DataGridTextColumn Header="e-mail" Binding="{Binding Path=Email}"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
-        <Grid Grid.Row="1" Grid.Column="1">
+        <Grid Grid.Row="1" Grid.Column="1" Margin="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>

@@ -18,9 +18,17 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="Works"></DataGrid>
+        <DataGrid x:Name="Works" CanUserAddRows="False" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Type" Binding="{Binding Path=WorkType}"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Path=OptionalDescription}"/>
+                <DataGridTextColumn Header="Cost" Binding="{Binding Path=Cost}"/>
+                <DataGridTextColumn Header="Start date" Binding="{Binding Path=StartDate}"/>
+                <DataGridTextColumn Header="End date" Binding="{Binding Path=EndDate}"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
-        <Grid Grid.Row="1" Grid.Column="1">
+        <Grid Grid.Row="1" Grid.Column="1" Margin="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
