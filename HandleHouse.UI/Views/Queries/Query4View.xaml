@@ -7,6 +7,38 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="Settlements"></DataGrid>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Select a region"/>
+            <ComboBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Path=Regions}" SelectedItem="{Binding Path=SelectedRegion}"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Minimal number of houses"/>
+            <TextBox Grid.Row="3" Grid.Column="0" Text="{Binding Path=NumberOfHouses}"/>
+            <Button Content="Search" Command="{Binding Path=SettlementsSearching}" Grid.Row="4" Grid.Column="0"/>
+        </Grid>
     </Grid>
 </UserControl>

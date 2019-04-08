@@ -7,6 +7,45 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid ItemsSource="{Binding Path=Infos}">
+            <!--<DataGrid.Columns>
+                <DataGridTextColumn Header="Full name" Binding="{Binding Path=OwnerNames.FullName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Furniture" Binding="{Binding Path=Furniture.Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Cost" Binding="{Binding Path=Furniture.Cost}"></DataGridTextColumn>
+            </DataGrid.Columns>-->
+        </DataGrid>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Select a number of rooms"/>
+            <ComboBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Path=Settlements}" SelectedItem="{Binding Path=SelectedSettlement}"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Select a street"/>
+            <ComboBox Grid.Row="3" Grid.Column="0" ItemsSource="{Binding Path=Streets}" SelectedItem="SelectedStreet"/>
+            <Button Content="Search" Command="{Binding Path=SearchingInfo}" Grid.Row="4" Grid.Column="0"/>
+        </Grid>
     </Grid>
 </UserControl>

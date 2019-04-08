@@ -49,6 +49,7 @@
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -59,38 +60,42 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
+            <TextBlock Text="Select type of the settlement" Grid.Row="0" Grid.Column="2"/>
                 <ComboBox
                 SelectedItem="{Binding Path=NewSettlementType}"
                 ItemsSource="{Binding Source={StaticResource enmTypes}}"
                 Grid.Row="1"
                 Grid.Column="2"/>
+            <TextBlock Text="Type a settlement name" Grid.Row="2" Grid.Column="2"/>
             <TextBox 
                 Name="NameTextBox"
                 Text="{Binding Path=NewSettlementName, Mode=OneWayToSource}"
-                VerticalAlignment="Center" 
-                Grid.Row="2" 
-                Grid.Column="2" 
-                MinWidth="100" 
-                MaxLength="2000"/>
-            <TextBox 
-                Name="RegionTextBox"
-                Text="{Binding Path=NewSettlementRegion,Mode=OneWayToSource }"
                 VerticalAlignment="Center" 
                 Grid.Row="3" 
                 Grid.Column="2" 
                 MinWidth="100" 
                 MaxLength="2000"/>
+            <TextBlock Text="Type the region of the settlement " Grid.Row="4" Grid.Column="2"/>
+            <TextBox 
+                Name="RegionTextBox"
+                Text="{Binding Path=NewSettlementRegion,Mode=OneWayToSource }"
+                VerticalAlignment="Center" 
+                Grid.Row="5" 
+                Grid.Column="2" 
+                MinWidth="100" 
+                MaxLength="2000"/>
+            <TextBlock Text="Type the district of the settlement " Grid.Row="6" Grid.Column="2"/>
             <TextBox 
                 Name="DistrictTextBox"
                 Text="{Binding Path=NewSettlementDistrict, Mode=OneWayToSource}"
                 VerticalAlignment="Center" 
-                Grid.Row="4" 
+                Grid.Row="7" 
                 Grid.Column="2" 
                 MinWidth="100" 
                 MaxLength="2000"/>
             <Button
                 Content="Save New Settlement"
-                Grid.Row="5"
+                Grid.Row="8"
                 Grid.Column="2"
                 Command="{Binding Path=SaveNewSettlementClass}"/>
         </Grid>

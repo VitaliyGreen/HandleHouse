@@ -17,7 +17,15 @@ namespace HandleHouse.UI.ViewModels.Queries
     {
         private readonly HouseContext _currentContext;
 
-        public BindableCollection<Furniture> Furniture { get; set; }
+        private BindableCollection<Furniture> _furniture;
+        public BindableCollection<Furniture> Furniture {
+            get => _furniture;
+            set
+            {
+                _furniture = value;
+                NotifyOfPropertyChanged();
+            }
+        }
         public BindableCollection<House> Houses { get; set; }
 
         private House _selectedHouse;
@@ -40,14 +48,17 @@ namespace HandleHouse.UI.ViewModels.Queries
                 NotifyOfPropertyChanged();
             }
         }
+
+        public Searching SearchFurniture { get; set; }
         
         public Query2ViewModel(HouseContext db)
         {
             _currentContext = db;
+            SearchFurniture = new Searching(this);
             Houses = new BindableCollection<House>(_currentContext.Houses.Include("Settlement").ToList());
         }
 
-        private void SearchFurniture()
+        private void SearchFurnitureMethod()
         {
             Furniture = new BindableCollection<Furniture>(
                 _currentContext.Furniture.Where(f => f.House.TechnicalPassportNumber == SelectedHouse.TechnicalPassportNumber &&
@@ -76,6 +87,7 @@ namespace HandleHouse.UI.ViewModels.Queries
                     }
                 };
             }
+
             public bool CanExecute(object parameter)
             {
                 return model.SelectedHouse != null;
@@ -83,7 +95,7 @@ namespace HandleHouse.UI.ViewModels.Queries
 
             public void Execute(object parameter)
             {
-                throw new NotImplementedException();
+                model.SearchFurnitureMethod();
             }
 
             public event EventHandler CanExecuteChanged;

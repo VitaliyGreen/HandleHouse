@@ -4,9 +4,53 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HandleHouse.UI.Views.Queries"
+             xmlns:enm="clr-namespace:HandleHouse.Data;assembly=HandleHouse.Data"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="enmTypes" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enm:TypeHelper+WorkType"></x:Type>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    <Grid
+                                                                                                                                                                                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="Owners"></DataGrid>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Select a type of work"/>
+            <ComboBox Grid.Row="1" Grid.Column="0"  ItemsSource="{Binding Source={StaticResource enmTypes}}" 
+                      SelectedItem="{Binding Path=SelectedWorkType}"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Select a district"/>
+            <ComboBox Grid.Row="3" Grid.Column="0"  ItemsSource="{Binding Path=Districts}" 
+                      SelectedItem="{Binding Path=SelectedDistrict}"/>
+            <Button Content="Search" Command="{Binding Path=OwnersSearching}" Grid.Row="4" Grid.Column="0"/>
+        </Grid>
     </Grid>
 </UserControl>

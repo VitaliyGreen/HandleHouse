@@ -20,7 +20,7 @@ namespace HandleHouse.Data
             List<House> result = new List<House>();
             using (HouseContext db = new HouseContext())
             {
-                result = db.Houses.ToList();
+                result = db.Houses.Include("Settlement").ToList();
             }
 
             return result;

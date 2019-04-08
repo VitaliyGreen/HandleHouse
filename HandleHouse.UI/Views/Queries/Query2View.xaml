@@ -42,8 +42,8 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Select a date"/>
-            <DatePicker Grid.Row="3" Grid.Column="0" SelectedDateFormat="Short" Text="" SelectedDate="{Binding Path=SetDate}"></DatePicker>
-            <Button Content="Search" Command="{Binding Path=SearchingHouses}" Grid.Row="4" Grid.Column="0"/>
+            <DatePicker Grid.Row="3" Grid.Column="0" SelectedDateFormat="Long" Text="" SelectedDate="{Binding Path=SetDate}"></DatePicker>
+            <Button Content="Search" Command="{Binding Path=SearchFurniture}" Grid.Row="4" Grid.Column="0"/>
         </Grid>
     </Grid>
 </UserControl>

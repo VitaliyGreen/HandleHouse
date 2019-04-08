@@ -7,6 +7,43 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="Houses"></DataGrid>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Select a number of rooms"/>
+            <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding Path=RoomNumber}"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Select a street"/>
+            <TextBox Grid.Row="3" Grid.Column="0" Text="{Binding Path=Street}"/>
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Select a cost of work"/>
+            <TextBox Grid.Row="5" Grid.Column="0" Text="{Binding Path=Cost}"/>
+            <Button Content="Search" Command="{Binding Path=SearchingHouses}" Grid.Row="6" Grid.Column="0"/>
+        </Grid>
     </Grid>
 </UserControl>

@@ -55,27 +55,27 @@ namespace HandleHouse.UI.ViewModels
         }
         public void ActivateQuery3()
         {
-            ActivateItem(new Query3ViewModel());
+            ActivateItem(new Query3ViewModel(context));
         }
         public void ActivateQuery4()
         {
-            ActivateItem(new Query4ViewModel());
+            ActivateItem(new Query4ViewModel(context));
         }
         public void ActivateQuery5()
         {
-            ActivateItem(new Query5ViewModel());
+            ActivateItem(new Query5ViewModel(context));
         }
         public void ActivateQuery6()
         {
-            ActivateItem(new Query6ViewModel());
+            ActivateItem(new Query6ViewModel(context));
         }
         public void ActivateQuery7()
         {
-            ActivateItem(new Query7ViewModel());
+            ActivateItem(new Query7ViewModel(context));
         }
         public void ActivateQuery8()
         {
-            ActivateItem(new Query8ViewModel());
+            ActivateItem(new Query8ViewModel(context));
         }
     }
 }
