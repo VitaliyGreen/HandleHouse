@@ -18,7 +18,11 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="Works" CanUserAddRows="False" AutoGenerateColumns="False">
+        <Grid Grid.Row="0" Margin="5">
+            <TextBlock Text="{Binding Path=ViewHeader}" MaxWidth="700"/>
+        </Grid>
+
+        <DataGrid x:Name="Works" CanUserAddRows="False" AutoGenerateColumns="False" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Type" Binding="{Binding Path=WorkType}"/>
                 <DataGridTextColumn Header="Description" Binding="{Binding Path=OptionalDescription}"/>

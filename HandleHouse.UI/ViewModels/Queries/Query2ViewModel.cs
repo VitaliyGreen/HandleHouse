@@ -36,6 +36,7 @@ namespace HandleHouse.UI.ViewModels.Queries
             {
                 _selectedHouse = value;
                 NotifyOfPropertyChanged();
+                NotifyOfPropertyChanged(nameof(ViewHeader));
             }
         }
         private DateTime _setDate;
@@ -46,6 +47,17 @@ namespace HandleHouse.UI.ViewModels.Queries
             {
                 _setDate = value;
                 NotifyOfPropertyChanged();
+                NotifyOfPropertyChanged(nameof(ViewHeader));
+            }
+        }
+
+        public string ViewHeader
+        {
+            get
+            {
+                if(SelectedHouse != null)
+                    return $"Searching for furniture in {SelectedHouse.FullAddress} after {SetDate.ToShortDateString()}";
+                return "";
             }
         }
 

@@ -77,5 +77,9 @@ namespace HandleHouse.UI.ViewModels
         {
             ActivateItem(new Query8ViewModel(context));
         }
+        public void ActivateQuery9()
+        {
+            ActivateItem(new Query9ViewModel(context));
+        }
     }
 }

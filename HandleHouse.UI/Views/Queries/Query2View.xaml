@@ -17,7 +17,12 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="Furniture" CanUserAddRows="False" AutoGenerateColumns="False">
+
+        <Grid Grid.Row="0" Margin="5">
+            <TextBlock Text="{Binding Path=ViewHeader}" MaxWidth="700"/>
+        </Grid>
+
+        <DataGrid x:Name="Furniture" CanUserAddRows="False" AutoGenerateColumns="False" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"/>
                 <DataGridTextColumn Header="Cost" Binding="{Binding Path=Cost}"/>

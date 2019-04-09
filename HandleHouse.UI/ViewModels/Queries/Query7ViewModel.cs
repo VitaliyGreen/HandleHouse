@@ -29,6 +29,7 @@ namespace HandleHouse.UI.ViewModels.Queries
                 {
                     _roomNumber = value;
                     NotifyOfPropertyChanged();
+                    NotifyOfPropertyChanged(nameof(ViewHeader));
                 }
                 else
                     MessageBox.Show("Incorrect number input");
@@ -42,6 +43,7 @@ namespace HandleHouse.UI.ViewModels.Queries
             {
                 _street = value;
                 NotifyOfPropertyChanged();
+                NotifyOfPropertyChanged(nameof(ViewHeader));
             }
         }
         private int _cost;
@@ -55,11 +57,14 @@ namespace HandleHouse.UI.ViewModels.Queries
                 {
                     _cost = value;
                     NotifyOfPropertyChanged();
+                    NotifyOfPropertyChanged(nameof(ViewHeader));
                 }
                 else
                     MessageBox.Show("Incorrect cost input");
             }
         }
+
+        public string ViewHeader => $"Searching houses with {RoomNumber} rooms and on {Street} street, where cost is lower than {Cost}";
 
         private BindableCollection<House> _houses;
         public BindableCollection<House> Houses
@@ -90,7 +95,7 @@ namespace HandleHouse.UI.ViewModels.Queries
             {
                 result.AddRange(selectedHouses.FindAll(house => house.TechnicalPassportNumber == work.House.TechnicalPassportNumber).ToList());
             }
-            Houses = new BindableCollection<House>(result);
+            Houses = new BindableCollection<House>(result.Distinct());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

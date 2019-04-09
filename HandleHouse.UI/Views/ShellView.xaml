@@ -32,6 +32,7 @@
                 <MenuItem Header="Query 6" x:Name="ActivateQuery6"/>
                 <MenuItem Header="Query 7" x:Name="ActivateQuery7"/>
                 <MenuItem Header="Query 8" x:Name="ActivateQuery8"/>
+                <MenuItem Header="Query 9" x:Name="ActivateQuery9"/>
             </MenuItem>
         </Menu>
         <ContentControl Grid.Row="1" x:Name="ActiveItem"/>

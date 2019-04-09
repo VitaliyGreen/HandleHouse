@@ -27,6 +27,7 @@ namespace HandleHouse.UI.ViewModels.Queries
             {
                 _settlementName = value;
                 NotifyOfPropertyChanged();
+                NotifyOfPropertyChanged(nameof(ViewHeader));
             }
         }
         private int _peopleNumber;
@@ -39,12 +40,15 @@ namespace HandleHouse.UI.ViewModels.Queries
                 {
                     _peopleNumber = value;
                     NotifyOfPropertyChanged();
+                    NotifyOfPropertyChanged(nameof(ViewHeader));
                 }
                 
                 else
                     MessageBox.Show("Invalid input of people number");
             }
         }
+
+        public string ViewHeader => $"Searching for house in {SettlementName} with {PeopleNumber} people living in";
 
         private BindableCollection<Info1> _houses;
         public BindableCollection<Info1> Houses
@@ -123,7 +127,14 @@ namespace HandleHouse.UI.ViewModels.Queries
 
             public void Execute(object parameter)
             {
-                model.SearchHousesMethod();
+                try
+                {
+                    model.SearchHousesMethod();
+                }
+                catch (Exception e)
+                {
+                    return;
+                }
             }
         }
     }

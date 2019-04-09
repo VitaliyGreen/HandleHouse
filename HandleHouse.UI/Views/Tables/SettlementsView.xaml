@@ -98,6 +98,11 @@
                 Grid.Row="8"
                 Grid.Column="2"
                 Command="{Binding Path=SaveNewSettlementClass}"/>
+            <Button
+                Content="Delete"
+                Grid.Row="9"
+                Grid.Column="2"
+                Command="{Binding Path=DeletingSettlement}"/>
         </Grid>
 
     </Grid>

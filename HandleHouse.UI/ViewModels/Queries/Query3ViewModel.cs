@@ -30,6 +30,7 @@ namespace HandleHouse.UI.ViewModels.Queries
             }
         }
 
+        public string ViewHeader => $"Searching for work with {WorkDuration} days duration and costs more than {Cost}$";
 
         private int _workDuration;
         public int WorkDuration
@@ -42,6 +43,7 @@ namespace HandleHouse.UI.ViewModels.Queries
                 {
                     _workDuration = value;
                     NotifyOfPropertyChanged();
+                    NotifyOfPropertyChanged(nameof(ViewHeader));
                 }
                 else
                     MessageBox.Show("Incorrect work duration input");
@@ -58,6 +60,7 @@ namespace HandleHouse.UI.ViewModels.Queries
                 {
                     _cost = value;
                     NotifyOfPropertyChanged();
+                    NotifyOfPropertyChanged(nameof(ViewHeader));
                 }
                 else
                     MessageBox.Show("Incorrect cost input");

@@ -66,8 +66,7 @@ namespace HandleHouse.Data
 
         public static Owner GetOwnerOfHouse(House house, HouseContext db)
         {
-            return db.Owners.Include("House.Settlement")
-                .First(o => o.House.TechnicalPassportNumber == house.TechnicalPassportNumber);
+            return db.Owners.Include("House").FirstOrDefault();
         }
     }
 }

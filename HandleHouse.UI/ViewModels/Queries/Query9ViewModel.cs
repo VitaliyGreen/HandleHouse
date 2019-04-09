@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using Caliburn.Micro;
 using HandleHouse.Data;
@@ -15,21 +16,15 @@ using HandleHouse.UI.Annotations;
 
 namespace HandleHouse.UI.ViewModels.Queries
 {
-    class Query5ViewModel : INotifyPropertyChanged
+    class Query9ViewModel : INotifyPropertyChanged
     {
         private readonly HouseContext _currentContext;
 
         public BindableCollection<string> Districts
         {
-            get
-            {
-                return new BindableCollection<string>(_currentContext.Settlements.Select(s => s.District).ToList()
-                    .Distinct());
-            }
+            get { return new BindableCollection<string>(_currentContext.Settlements.Select(s => s.District).ToList().Distinct()); }
         }
-
         private TypeHelper.WorkType _selectedSelectedWorkType;
-
         public TypeHelper.WorkType SelectedWorkType
         {
             get => _selectedSelectedWorkType;
@@ -40,9 +35,7 @@ namespace HandleHouse.UI.ViewModels.Queries
                 NotifyOfPropertyChanged(nameof(ViewHeader));
             }
         }
-
         private string _selectedDistrict;
-
         public string SelectedDistrict
         {
             get => _selectedDistrict;
@@ -53,31 +46,48 @@ namespace HandleHouse.UI.ViewModels.Queries
                 NotifyOfPropertyChanged(nameof(ViewHeader));
             }
         }
+        private int _cost;
+        public int Cost
+        {
+            get => _cost;
+            set
+            {
+                int num = -1;
+                if (Int32.TryParse(value.ToString(), out num) && value >= 0)
+                {
+                    _cost = value;
+                    NotifyOfPropertyChanged();
+                    NotifyOfPropertyChanged(nameof(ViewHeader));
+                }
+                else
+                    MessageBox.Show("Incorrect number input");
+            }
+        }
 
         public string ViewHeader
         {
             get
             {
                 if (!String.IsNullOrWhiteSpace(SelectedDistrict))
-                    return $"Searching for owners in whose house was conducted {SelectedWorkType} type work and live in the {SelectedDistrict} distinct";
+                    return $"Searching for owners in whose house was conducted {SelectedWorkType} and had cost more than {Cost} type work and live in the {SelectedDistrict} distinct";
                 return "";
             }
         }
 
-    private BindableCollection<Owner> _owners;
-        public BindableCollection<Owner> Owners
+        private BindableCollection<Owner> _owners9;
+        public BindableCollection<Owner> Owners9
         {
-            get => _owners;
+            get => _owners9;
             set
             {
-                _owners = value;
+                _owners9 = value;
                 NotifyOfPropertyChanged();
             }
         }
 
         public Searching OwnersSearching { get; set; }
 
-        public Query5ViewModel(HouseContext db)
+        public Query9ViewModel(HouseContext db)
         {
             _currentContext = db;
             OwnersSearching = new Searching(this);
@@ -86,7 +96,7 @@ namespace HandleHouse.UI.ViewModels.Queries
         private void SearchOwners()
         {
             List<House> selectedHouses = new List<House>(_currentContext.Works.Include("House.Settlement")
-                .Where(w => w.WorkType == SelectedWorkType && w.House.Settlement.District == SelectedDistrict)
+                .Where(w => w.WorkType == SelectedWorkType && w.House.Settlement.District == SelectedDistrict && w.Cost > Cost)
                 .Select(w => w.House));
             List<Owner> res = new List<Owner>();
             if (selectedHouses.Count > 0 && selectedHouses != null)
@@ -97,8 +107,8 @@ namespace HandleHouse.UI.ViewModels.Queries
                 }
             }
 
-            Owners = new BindableCollection<Owner>(res.Distinct());
-            NotifyOfPropertyChanged(nameof(Owners));
+            Owners9 = new BindableCollection<Owner>(res.Distinct());
+            NotifyOfPropertyChanged(nameof(Owners9));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -110,9 +120,9 @@ namespace HandleHouse.UI.ViewModels.Queries
 
         internal class Searching : ICommand
         {
-            private Query5ViewModel model;
+            private Query9ViewModel model;
 
-            public Searching(Query5ViewModel model)
+            public Searching(Query9ViewModel model)
             {
                 this.model = model;
                 this.model.PropertyChanged += (s, e) =>
@@ -131,14 +141,7 @@ namespace HandleHouse.UI.ViewModels.Queries
 
             public void Execute(object parameter)
             {
-                try
-                {
-                    model.SearchOwners();
-                }
-                catch (Exception e)
-                {
-                    return;
-                }
+                model.SearchOwners();
             }
 
             public event EventHandler CanExecuteChanged;

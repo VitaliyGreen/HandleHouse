@@ -18,7 +18,11 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid ItemsSource="{Binding Path=Infos}">
+        <Grid Grid.Row="0" Margin="5">
+            <TextBlock Text="{Binding Path=ViewHeader}" MaxWidth="700" TextWrapping="Wrap"/>
+        </Grid>
+
+        <DataGrid ItemsSource="{Binding Path=Infos}" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Full name" Binding="{Binding Path=Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Furniture" Binding="{Binding Path=Furniture}"></DataGridTextColumn>
@@ -41,10 +45,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Select a number of rooms"/>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Select a settlement"/>
             <ComboBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Path=Settlements}" SelectedItem="{Binding Path=SelectedSettlement}"/>
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Select a street"/>
-            <ComboBox Grid.Row="3" Grid.Column="0" ItemsSource="{Binding Path=Streets}" SelectedItem="SelectedStreet"/>
+            <ComboBox Grid.Row="3" Grid.Column="0" ItemsSource="{Binding Path=Streets}" SelectedItem="{Binding Path=SelectedStreet}"/>
             <Button Content="Search" Command="{Binding Path=SearchingInfo}" Grid.Row="4" Grid.Column="0"/>
         </Grid>
     </Grid>

@@ -29,6 +29,7 @@ namespace HandleHouse.UI.ViewModels.Queries
                 {
                     _peopleNumber = value;
                     NotifyOfPropertyChanged();
+                    NotifyOfPropertyChanged(nameof(ViewHeader));
                 }
                 else
                     MessageBox.Show("Incorrect number input");
@@ -45,11 +46,14 @@ namespace HandleHouse.UI.ViewModels.Queries
                 {
                     _peopleAge = value;
                     NotifyOfPropertyChanged();
+                    NotifyOfPropertyChanged(nameof(ViewHeader));
                 }
                 else
                     MessageBox.Show("Incorrect age input");
             }
         }
+
+        public string ViewHeader => $"Searching for with more than {PeopleNumber} of inhabitants and age more than {PeopleAge}";
         
         private BindableCollection<Person> _people;
         public BindableCollection<Person> People

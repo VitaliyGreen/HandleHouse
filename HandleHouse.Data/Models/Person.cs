@@ -30,10 +30,7 @@ namespace HandleHouse.Data.Models
             
         }
 
-        public string FullName
-        {
-            get { return $"{LastName}  {FirstName} {Patronymic}"; }
-        }
+        public string FullName => $"{LastName} {Patronymic} {FirstName}";
 
         public string ShortFullName
         {

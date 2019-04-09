@@ -18,7 +18,11 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="Houses" CanUserAddRows="False" AutoGenerateColumns="False">
+        <Grid Grid.Row="0" Margin="5">
+            <TextBlock Text="{Binding Path=ViewHeader}" MaxWidth="700" TextWrapping="Wrap"/>
+        </Grid>
+
+        <DataGrid x:Name="Houses" CanUserAddRows="False" AutoGenerateColumns="False" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Technical passport number" Binding="{Binding Path=TechnicalPassportNumber}"/>
                 <DataGridTextColumn Header="Room number" Binding="{Binding Path=RoomNumber}"/>

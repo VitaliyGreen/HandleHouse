@@ -15,6 +15,7 @@ using Caliburn.Micro;
 using HandleHouse.Data;
 using HandleHouse.Data.Models;
 using HandleHouse.UI.Views;
+using Exception = System.Exception;
 using String = System.String;
 
 
@@ -93,19 +94,21 @@ namespace HandleHouse.UI.ViewModels
             }
         }
 
+        public DeleteSettlementClass DeletingSettlement { get; set; }
+
         public SettlementsViewModel(HouseContext db)
         {
             _currentContext = db;
             Settlements = new BindableCollection<Settlement>(DataAccess.GetSettlements(_currentContext));
             SaveNewSettlementClass = new SaveSettlementClass(this);
-            NotifyOfPropertyChange();
+            DeletingSettlement = new DeleteSettlementClass(this);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public virtual void NotifyOfPropertyChange(string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            if (!String.IsNullOrWhiteSpace(SelectedSettlement.Name))
+            if ((SelectedSettlement != null) && !String.IsNullOrWhiteSpace(SelectedSettlement.Name))
             {
                 _currentContext.Entry(SelectedSettlement).State = EntityState.Modified;
                 _currentContext.SaveChanges();
@@ -123,8 +126,50 @@ namespace HandleHouse.UI.ViewModels
             
         }
 
+        public void DeleteSettlement()
+        {
+            try
+            {
+                _currentContext.Entry(SelectedSettlement).State = EntityState.Deleted;
+                Settlements.Remove(SelectedSettlement);
+                _currentContext.SaveChanges();
+                NotifyOfPropertyChange();
+            }
+            catch (Exception e)
+            {
+                return;
+            }
+        }
+
         public SaveSettlementClass SaveNewSettlementClass { get; set; }
 
+        internal class DeleteSettlementClass : ICommand
+        {
+            private SettlementsViewModel viewModel;
+
+            public DeleteSettlementClass(SettlementsViewModel viewModel)
+            {
+                this.viewModel = viewModel;
+                this.viewModel.PropertyChanged += (s, e) =>
+                {
+                    if (this.CanExecuteChanged != null)
+                    {
+                        this.CanExecuteChanged(this, new EventArgs()); 
+                    }
+                };
+            }
+            public bool CanExecute(object parameter)
+            {
+                return viewModel.SelectedSettlement != null;
+            }
+            
+            public void Execute(object parameter)
+            {
+                this.viewModel.DeleteSettlement();
+            }
+
+            public event EventHandler CanExecuteChanged;
+        }
         internal class SaveSettlementClass : ICommand
         {
             private SettlementsViewModel viewModel;
@@ -136,7 +181,7 @@ namespace HandleHouse.UI.ViewModels
                 {
                     if (this.CanExecuteChanged != null)
                     {
-                        this.CanExecuteChanged(this, new EventArgs()); 
+                        this.CanExecuteChanged(this, new EventArgs());
                     }
                 };
             }
@@ -152,6 +197,6 @@ namespace HandleHouse.UI.ViewModels
 
             public event EventHandler CanExecuteChanged;
         }
-        
+
     }
 }

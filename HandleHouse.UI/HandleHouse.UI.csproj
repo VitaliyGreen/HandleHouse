@@ -92,6 +92,7 @@
     <Compile Include="ViewModels\Queries\Query6ViewModel.cs" />
     <Compile Include="ViewModels\Queries\Query7ViewModel.cs" />
     <Compile Include="ViewModels\Queries\Query8ViewModel.cs" />
+    <Compile Include="ViewModels\Queries\Query9ViewModel.cs" />
     <Compile Include="ViewModels\Tables\FurnitureViewModel.cs" />
     <Compile Include="ViewModels\Tables\HousesViewModel.cs" />
     <Compile Include="ViewModels\Tables\OwnersViewModel.cs" />
@@ -122,6 +123,9 @@
     </Compile>
     <Compile Include="Views\Queries\Query8View.xaml.cs">
       <DependentUpon>Query8View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Queries\Query9View.xaml.cs">
+      <DependentUpon>Query9View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Tables\FurnitureView.xaml.cs">
       <DependentUpon>FurnitureView.xaml</DependentUpon>
@@ -212,6 +216,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Queries\Query8View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Queries\Query9View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

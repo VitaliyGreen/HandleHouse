@@ -29,6 +29,7 @@ namespace HandleHouse.UI.ViewModels.Queries
                         .Select(h => h.Street).Distinct());
                 NotifyOfPropertyChanged(nameof(Streets));
                 NotifyOfPropertyChanged();
+                NotifyOfPropertyChanged(nameof(ViewHeader));
             }
         }
 
@@ -39,9 +40,12 @@ namespace HandleHouse.UI.ViewModels.Queries
             set
             {
                 _selectedStreet = value;
-                NotifyOfPropertyChanged(nameof(SelectedStreet));
+                NotifyOfPropertyChanged();
+                NotifyOfPropertyChanged(nameof(ViewHeader));
             }
         }
+
+        public string ViewHeader => $"Searching for owner full name, name and maximal cost of furniture on {SelectedStreet} street of {SelectedSettlement} settlement";
 
         public BindableCollection<string> Settlements
         {
@@ -62,8 +66,7 @@ namespace HandleHouse.UI.ViewModels.Queries
                 NotifyOfPropertyChanged();
             }
         }
-
-
+        
         public Searching SearchingInfo { get; set; }
 
         public Query8ViewModel(HouseContext db)

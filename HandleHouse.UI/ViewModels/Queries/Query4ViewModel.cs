@@ -33,6 +33,7 @@ namespace HandleHouse.UI.ViewModels.Queries
             {
                 _selectedRegion = value;
                 NotifyOfPropertyChanged();
+                NotifyOfPropertyChanged(nameof(ViewHeader));
             }
         }
         private int _numberOfHouses;
@@ -45,11 +46,14 @@ namespace HandleHouse.UI.ViewModels.Queries
                 {
                     _numberOfHouses = value;
                     NotifyOfPropertyChanged();
+                    NotifyOfPropertyChanged(nameof(ViewHeader));
                 }
                 else
                     MessageBox.Show("Incorrect number input");
             }
         }
+
+        public string ViewHeader => $"Searching for settlement in {SelectedRegion} region and has more than {NumberOfHouses} keeping houses";
 
         private BindableCollection<Settlement> _settlements;
         public BindableCollection<Settlement> Settlements

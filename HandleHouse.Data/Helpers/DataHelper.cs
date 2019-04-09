@@ -21,7 +21,7 @@ namespace HandleHouse.Data.Helpers
         //Settlement parameters
         //ctor (TypeHelper.SettlementType type, string name, string region, string district)
         private readonly string[] _settlementNames = new string[] { "Arizona", "New Mexico", "Florida", "Maine", "Virginia", "New York", "Massachusetts" };
-        private readonly string[] _settlementRegions = new string[] { "Arizona", "New Mexico", "Florida", "Maine", "Virginia", "New York", "Massachusetts" };
+        private readonly string[] _settlementRegions = new string[] { "Arizona", "New Mexico", "Florida", "Maine", "Virginia", "New York", "Massachusetts", "Washington", "Alaska", "Illenoise", "Nebraska" };
         private readonly string[] _settlementDistricts = new string[] { "Alabama", "Arizona", "California", "Connecticut", "Florida", "Kansas", "Michigan", "Nevada", "Ohio", "Texas"};
 
         //House parameters
@@ -42,21 +42,21 @@ namespace HandleHouse.Data.Helpers
 
         //Furniture parameters
         //ctor (string name, int cost, DateTime setDate, House house)
-        private readonly string[] _furnitureNames = new string[] {"Table", "Chair", "Shelf", "Sofa"};
+        private readonly string[] _furnitureNames = new string[] {"Table", "Chair", "Shelf", "Sofa", "Bed", "Mattress", "Puff", "Container", "Storage", "Armchair", "Cabinet"};
 
         //Person parameters
         //ctor ((string first, string last, string patronymic, DateTime birthday, House house, TypeHelper.Sex sex)
-        private readonly string[] _personMaleFirstNames = new string[] {"Bill"};
-        private readonly string[] _personFemaleFirstNames = new string[] { "Lora"};
-        private readonly string[] _personMaleLastNames = new string[] {"Jones"};
-        private readonly string[] _personFemaleLastNames = new string[] { "Bond"};
-        private readonly string[] _personMalePatronymics = new string[] { "J."};
-        private readonly string[] _personFemalePatronymics = new string[] {"K." };
+        private readonly string[] _personMaleFirstNames = new string[] {"Bill", "John", "Villey", "Matew", "Pall", "Riley", "Ostin", "George", "Steaven", "Donald", "Rob", "Artur", "Scott"};
+        private readonly string[] _personFemaleFirstNames = new string[] { "Lora", "Lilly", "Lisa", "Davora", "Tabita", "Amanda", "Stella", "Barbara", "Camilla", "Gabriela"};
+        private readonly string[] _personMaleLastNames = new string[] {"Jones", "King", "Powers", "Corney", "Salamander", "Gater", "Maters", "Smith", "Grounder", "Vilek", "Kordel", "Agrem"};
+        private readonly string[] _personFemaleLastNames = new string[] { "Bond", "Jones", "King", "Powers", "Corney", "Salamander", "Gater", "Maters", "Smith", "Grounder", "Vilek", "Kordel", "Agrem" };
+        private readonly string[] _personMalePatronymics = new string[] { "J.", "C.", "D.", "L", "M.", "N.", "P.", "R.", "S.", "K"};
+        private readonly string[] _personFemalePatronymics = new string[] {"K.", "J.", "C.", "D.", "L", "M.", "N.", "P.", "R.", "S." };
 
         //Owner parameters
         //ctor (string passport, string idNumber, string phone, string email, Person person)
-        private readonly string[] _ownerPassportNumbers = new string[] {"DY1245HA"};
-        private readonly string[] _ownerEmails = new string[] {"crematory@gmai.com"};
+        private readonly string[] _ownerPassportNumbers = new string[] {"DY1245HA", "AD1496LS", "AS1589AS", "LW1587LO", "LO1225KO", "JY1296OS", "PD8912PV", "OD1994LA", "PF1277PA", "PD2588AS", "AS9425LA", "KS4488GJ", "AS4656AS", "OS1534LQ", "QD1589OO", "SO8965PQ"};
+        private readonly string[] _ownerEmails = new string[] {"ALABAMA@gmail.com", "crocodile@gmail.com", "stormach@gmail.com", "Villeymas@gmail.com", "orger@gmail.com", "lumus@gmail.com", "example@gmail.com", "ICanDoIt@gmail.com", "NoMor@gmail.com", "Illial@gmail.com", "wonderMaster@gmail.com" };
 
         public House[] Houses
         {
@@ -150,7 +150,7 @@ namespace HandleHouse.Data.Helpers
             return new House(number, passNum, roomNumb, area, street, settlement);
         }
 
-        public List<Work> GetWorks(int total = 3)
+        public List<Work> GetWorks(int total = 25)
         {
             List<Work> outList = new List<Work>();
             for (int i = 0; i < total; i++)

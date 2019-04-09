@@ -18,7 +18,11 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="People" CanUserAddRows="False" AutoGenerateColumns="False">
+        <Grid Grid.Row="0" Margin="5">
+            <TextBlock Text="{Binding Path=ViewHeader}" MaxWidth="700"/>
+        </Grid>
+
+        <DataGrid x:Name="People" CanUserAddRows="False" AutoGenerateColumns="False" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Full name" Binding="{Binding Path=FullName}"/>
                 <DataGridTextColumn Header="Birthday" Binding="{Binding Path=Birthday}"/>

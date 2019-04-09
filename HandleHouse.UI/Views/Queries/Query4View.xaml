@@ -18,7 +18,11 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="Settlements"></DataGrid>
+        <Grid Grid.Row="0" Margin="5">
+            <TextBlock Text="{Binding Path=ViewHeader}" MaxWidth="700"/>
+        </Grid>
+
+        <DataGrid x:Name="Settlements" CanUserAddRows="False" Grid.Row="1"></DataGrid>
 
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
